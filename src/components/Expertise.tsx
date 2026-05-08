@@ -1,30 +1,27 @@
 import { useEffect, useRef, useState } from "react"
-import { Home, Building, Armchair, Trees } from "lucide-react"
 import { HighlightedText } from "./HighlightedText"
+import Icon from "@/components/ui/icon"
 
 const expertiseAreas = [
   {
-    title: "Жилая архитектура",
-    description: "Создаем дома, которые сочетают красоту с комфортом, где каждое пространство служит и форме, и функции.",
-    icon: Home,
+    title: "Пособие по безработице",
+    description: "Помогаем оформить и получить пособие по безработице в максимально короткие сроки. Разбираемся во всех нюансах расчёта суммы выплат.",
+    icon: "Banknote",
   },
   {
-    title: "Коммерческие объекты",
-    description:
-      "Проектируем рабочие пространства, которые вдохновляют на продуктивность и отражают ценности передовых организаций.",
-    icon: Building,
+    title: "Центр занятости",
+    description: "Сопровождаем при постановке на учёт в центр занятости, помогаем подготовить документы и пройти все необходимые процедуры.",
+    icon: "Building2",
   },
   {
-    title: "Дизайн интерьеров",
-    description:
-      "Создаем интерьеры, которые гармонируют с архитектурной оболочкой, формируя целостный пространственный опыт.",
-    icon: Armchair,
+    title: "Льготы и субсидии",
+    description: "Консультируем по всем видам социальных льгот: скидки на ЖКХ, льготный проезд, помощь с питанием и другие доступные меры поддержки.",
+    icon: "HandHeart",
   },
   {
-    title: "Градостроительство",
-    description:
-      "Формируем сообщества через продуманную интеграцию общественных пространств, зданий и природных элементов.",
-    icon: Trees,
+    title: "Поиск работы",
+    description: "Помогаем составить резюме, подготовиться к собеседованию и найти подходящие вакансии через биржи труда и программы переобучения.",
+    icon: "Briefcase",
   },
 ]
 
@@ -59,45 +56,40 @@ export function Expertise() {
         <div className="max-w-3xl mb-20">
           <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-6">Наши услуги</p>
           <h2 className="text-6xl font-medium leading-[1.15] tracking-tight mb-6 text-balance lg:text-8xl">
-            <HighlightedText>Экспертиза</HighlightedText>, отточенная
+            <HighlightedText>Поддержка</HighlightedText> на каждом
             <br />
-            практикой
+            этапе
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            Каждый проект опирается на десятилетия совокупного опыта, создавая архитектуру, которая одновременно инновационна и вневременна.
+            Мы знаем систему социального обеспечения изнутри и помогаем получить все положенные выплаты и льготы без лишних сложностей.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-x-12 gap-y-16">
-          {expertiseAreas.map((area, index) => {
-            const Icon = area.icon
-            return (
+          {expertiseAreas.map((area, index) => (
+            <div
+              key={area.title}
+              ref={(el) => {
+                itemRefs.current[index] = el
+              }}
+              data-index={index}
+              className={`relative pl-8 border-l border-border transition-all duration-700 ${
+                visibleItems.includes(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              }`}
+              style={{ transitionDelay: `${index * 150}ms` }}
+            >
               <div
-                key={area.title}
-                ref={(el) => {
-                  itemRefs.current[index] = el
-                }}
-                data-index={index}
-                className={`relative pl-8 border-l border-border transition-all duration-700 ${
-                  visibleItems.includes(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                className={`transition-all duration-1000 ${
+                  visibleItems.includes(index) ? "animate-draw-stroke" : ""
                 }`}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
-                <div
-                  className={`transition-all duration-1000 ${
-                    visibleItems.includes(index) ? "animate-draw-stroke" : ""
-                  }`}
-                  style={{
-                    transitionDelay: `${index * 150}ms`,
-                  }}
-                >
-                  <Icon className="w-10 h-10 mb-4 text-foreground" strokeWidth={1.25} />
-                </div>
-                <h3 className="text-xl font-medium mb-4">{area.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{area.description}</p>
+                <Icon name={area.icon} size={40} className="mb-4 text-foreground" fallback="CircleHelp" />
               </div>
-            )
-          })}
+              <h3 className="text-xl font-medium mb-4">{area.title}</h3>
+              <p className="text-muted-foreground leading-relaxed">{area.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
