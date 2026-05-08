@@ -23,9 +23,13 @@ const benefitOptions = [
   "Переобучение / курсы",
 ]
 
+const SEND_URL = "https://functions.poehali.dev/12cd09ce-7c29-49f3-a971-1330133b6531"
+
 export function Questionnaire() {
   const [step, setStep] = useState(1)
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("")
   const [form, setForm] = useState<FormData>({
     name: "",
     phone: "",
@@ -55,9 +59,23 @@ export function Questionnaire() {
   const canNext2 = form.employmentStatus && form.lastJobDate && form.reason
   const canSubmit = form.hasDocuments && form.benefits.length > 0
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
+    setLoading(true)
+    setError("")
+    try {
+      const res = await fetch(SEND_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      })
+      if (!res.ok) throw new Error("Ошибка сервера")
+      setSubmitted(true)
+    } catch {
+      setError("Не удалось отправить анкету. Попробуйте ещё раз или позвоните нам.")
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -309,21 +327,26 @@ export function Questionnaire() {
                       Нажимая «Отправить», вы соглашаетесь на обработку персональных данных в соответствии с политикой конфиденциальности.
                     </p>
 
+                    {error && (
+                      <p className="text-sm text-destructive bg-destructive/10 px-4 py-3 rounded-sm">{error}</p>
+                    )}
+
                     <div className="flex gap-4">
                       <button
                         type="button"
                         onClick={() => setStep(2)}
-                        className="inline-flex items-center gap-2 border border-border px-8 py-4 text-sm tracking-wide hover:border-foreground transition-colors duration-300 group"
+                        disabled={loading}
+                        className="inline-flex items-center gap-2 border border-border px-8 py-4 text-sm tracking-wide hover:border-foreground transition-colors duration-300 group disabled:opacity-40"
                       >
                         <Icon name="ArrowLeft" size={16} className="transition-transform group-hover:-translate-x-1" />
                         Назад
                       </button>
                       <button
                         type="submit"
-                        disabled={!canSubmit}
+                        disabled={!canSubmit || loading}
                         className="inline-flex items-center gap-3 bg-foreground text-primary-foreground px-8 py-4 text-sm tracking-wide hover:bg-foreground/80 transition-colors duration-300 disabled:opacity-40 disabled:cursor-not-allowed group"
                       >
-                        Отправить анкету
+                        {loading ? "Отправляем..." : "Отправить анкету"}
                         <Icon name="Send" size={16} className="transition-transform group-hover:translate-x-1" />
                       </button>
                     </div>

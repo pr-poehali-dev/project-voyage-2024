@@ -1,0 +1,23 @@
+{
+  "tests": [
+    {
+      "name": "Send questionnaire to Telegram",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Иван Тестов",
+        "phone": "+7 (999) 123-45-67",
+        "region": "Москва",
+        "employmentStatus": "Без работы 1–3 месяца",
+        "lastJobDate": "2024-10",
+        "reason": "Сокращение штата",
+        "hasDocuments": "Да, все документы в наличии",
+        "benefits": ["Пособие по безработице", "Льготы и субсидии"],
+        "comment": "Тестовое сообщение"
+      },
+      "expectedStatus": 200,
+      "expectedBody": { "ok": true },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
