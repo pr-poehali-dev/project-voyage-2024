@@ -7,28 +7,28 @@ const steps = [
     title: "Подайте анкету",
     category: "Шаг 1",
     description: "Заполните короткую анкету онлайн — это займёт не более 5 минут. Полностью бесплатно.",
-    image: "https://cdn.poehali.dev/projects/746d945a-a1b6-4198-b948-3edf40a1b8c7/files/57c3d945-3595-48ff-8a7f-0d948a1d8713.jpg",
+    image: "https://cdn.poehali.dev/projects/746d945a-a1b6-4198-b948-3edf40a1b8c7/files/01e78ce2-e8c3-4ddf-b491-d854e1bb3f56.jpg",
   },
   {
     id: 2,
     title: "Бесплатная консультация",
     category: "Шаг 2",
     description: "Специалист свяжется с вами и бесплатно расскажет о всех доступных мерах поддержки",
-    image: "https://cdn.poehali.dev/projects/746d945a-a1b6-4198-b948-3edf40a1b8c7/files/0dd8733c-9a82-4236-ae49-4961ace37bf8.jpg",
+    image: "https://cdn.poehali.dev/projects/746d945a-a1b6-4198-b948-3edf40a1b8c7/files/603b0865-d0fb-42d4-b45f-dfb8c371f81a.jpg",
   },
   {
     id: 3,
     title: "Помощь с документами",
     category: "Шаг 3",
     description: "Бесплатно поможем собрать и подать все необходимые документы в государственные органы",
-    image: "https://cdn.poehali.dev/projects/746d945a-a1b6-4198-b948-3edf40a1b8c7/files/57e5a1cd-cb44-4031-843a-5c9320448bdc.jpg",
+    image: "https://cdn.poehali.dev/projects/746d945a-a1b6-4198-b948-3edf40a1b8c7/files/68318b8a-90c9-41c8-9f3e-86cdefabfd61.jpg",
   },
   {
     id: 4,
     title: "Получите выплаты",
     category: "Шаг 4",
     description: "Начнёте получать пособия и льготы, на которые имеете право по закону",
-    image: "https://cdn.poehali.dev/projects/746d945a-a1b6-4198-b948-3edf40a1b8c7/files/46f9191d-ba11-4454-ad2c-4403df4b7ff4.jpg",
+    image: "https://cdn.poehali.dev/projects/746d945a-a1b6-4198-b948-3edf40a1b8c7/files/ec73efe1-12b5-40bb-87e6-5708422e137a.jpg",
   },
 ]
 
