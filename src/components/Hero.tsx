@@ -120,10 +120,11 @@ export function Hero() {
     <section id="hero" ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/hously-background.png"
-          alt="Минималистичный архитектурный интерьер"
+          src="https://cdn.poehali.dev/projects/746d945a-a1b6-4198-b948-3edf40a1b8c7/files/f71d60e7-3877-4550-a505-9057a294b91b.jpg"
+          alt="Центр государственной социальной поддержки"
           className="w-full h-full object-cover object-center"
         />
+        <div className="absolute inset-0 bg-primary/70" />
       </div>
 
       <div
@@ -137,7 +138,7 @@ export function Hero() {
         }}
       >
         <div className="mb-72 md:mb-60 lg:mb-80">
-          <p className="text-sm tracking-[0.3em] uppercase text-center text-secondary mb-0">{"Социальная поддержка"}</p>
+          <p className="text-sm tracking-[0.3em] uppercase text-center text-blue-200 mb-4">{"Бесплатная социальная поддержка"}</p>
 
           <h1
             ref={titleRef}
@@ -145,17 +146,9 @@ export function Hero() {
           >
             {"Помогаем получить"}
             <br />
-            <span className="text-orange-200">{"всё, что положено"}</span>
+            <span className="text-blue-200">{"всё, что положено"}</span>
           </h1>
         </div>
-      </div>
-
-      <div className="absolute inset-0 z-20 pointer-events-none">
-        <img
-          src="/images/hously-foreground.png"
-          alt="Мраморная кухонная столешница"
-          className="w-full h-full object-cover object-center"
-        />
       </div>
 
       {animationComplete && (

@@ -61,16 +61,16 @@ export function Philosophy() {
 
             <div className="relative hidden lg:block">
               <img
-                src="/images/exterior.png"
-                alt="Поддержка граждан"
-                className="opacity-90 relative z-10 w-auto"
+                src="https://cdn.poehali.dev/projects/746d945a-a1b6-4198-b948-3edf40a1b8c7/files/bf728f99-2a25-401b-934d-72736ec71954.jpg"
+                alt="Центр социальной поддержки"
+                className="opacity-90 relative z-10 w-full rounded-sm object-cover"
               />
             </div>
           </div>
 
           <div className="space-y-6 lg:pt-48">
             <p className="text-muted-foreground text-lg leading-relaxed max-w-md mb-12">
-              Потеря работы — это стресс. Мы рядом, чтобы помочь вам разобраться в системе социальной поддержки и получить всё, на что вы имеете право.
+              Потеря работы — это стресс. Мы рядом, чтобы бесплатно помочь вам разобраться в системе социальной поддержки и получить все выплаты и льготы, на которые вы имеете право.
             </p>
 
             {philosophyItems.map((item, index) => (

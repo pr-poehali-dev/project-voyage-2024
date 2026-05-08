@@ -6,16 +6,16 @@ export function CallToAction() {
     <section id="contact" className="py-32 md:py-29 bg-foreground text-primary-foreground">
       <div className="container mx-auto px-6 md:px-12">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-primary-foreground/60 text-sm tracking-[0.3em] uppercase mb-8">Мы рядом</p>
+          <p className="text-primary-foreground/60 text-sm tracking-[0.3em] uppercase mb-8">Всё бесплатно</p>
 
           <h2 className="text-3xl md:text-4xl lg:text-6xl font-medium leading-[1.1] tracking-tight mb-8 text-balance">
-            Вы заслуживаете
+            Получите помощь
             <br />
-            <HighlightedText>поддержки</HighlightedText> и помощи
+            <HighlightedText>бесплатно</HighlightedText> прямо сейчас
           </h2>
 
           <p className="text-primary-foreground/70 text-lg md:text-xl leading-relaxed mb-12 max-w-2xl mx-auto">
-            Не оставайтесь с проблемой один на один. Позвоните нам или заполните анкету — мы разберёмся в вашей ситуации и подскажем следующие шаги.
+            Все консультации, помощь с документами и сопровождение — полностью бесплатно. Не оставайтесь один на один с бюрократией — мы поможем получить всё, что вам положено.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
